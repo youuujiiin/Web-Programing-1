@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024_Class1_Midterm Exam</title>
+    <!-- 구글 Dokdo regular 폰트 적용 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dokdo&family=Gaegu&display=swap" rel="stylesheet">
+    
+    <style>
+        .dokdo-regular {
+            font-family: "Dokdo", system-ui;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 25px;
+        }
+
+    </style>
+
+    <style>
+        /* 전체 폰트 적용 */
+
+       
+        /* 1 기본 설정 
+           section 태그의 각 스타일을 작성하세요.
+        */
+        section {
+            border: 3px ridge lightsalmon;
+            margin: 20px;
+            position: relative;
+        }
+
+        #sec1 {
+            background-color: lightgray;
+        }
+
+        #sec2 {
+            background-color: lightgreen;
+            height: 200px;
+        }
+
+        #sec3 {
+            background-color: lightskyblue;
+            height: 200px;
+        }
+
+        h3 {
+            margin: 20px;
+        }
+
+        div {
+
+        }
+        
+        
+    </style>
+    <style>
+        /* 2. Form 꾸미기 Style 
+          Form 내부에 적용할 각 스타일을 작성하세요.
+        
+        */
+        form {
+            margin: 20px;
+        }
+
+        form > label {
+            color: red;
+            display: block;
+        }
+
+        input :focus {
+            background-color: pink;
+            border: 2px;
+            font-size: 15px;
+        }
+
+
+    </style>
+    <style>
+        /* 3. dummyimage.com 활용 Style 
+            주어진 문제에 맞는 스타일을 작성하세요.
+        */
+        #sec2 div {
+            border: 1px solid blue;
+            background-color: lightgray;
+            width: 150px;
+            height: 50;
+            position: relative;
+            color: red;
+            text-align: center;
+        }
+
+        #sec2 #dv1 {
+            margin-top: 80px;
+            margin-left: 0;
+        }
+
+        #sec2 #dv2 {
+            margin-top: 100px;
+            margin-left: 20;
+        }
+        #sec2 #dv3 {
+            margin-top: 120px;
+            margin-left: 40;
+        }
+        
+        #sec2 > div :hover {
+            background-color: aqua;
+            margin-left: 250px;
+            transition: left 2s;
+        }
+
+        #sec2 :active {
+
+        }
+
+        a {
+            text-decoration: none;
+            color:red;
+        }
+        
+
+    </style>
+    <style>
+        /* 4. 건반 연주 Style */
+        /* 처음에 배경색이 red, 중간에 skyblue, 마지막에 blue인 애니메이션을 정의하세요. */
+        
+        /* 문제에 맞도록 각각의 스타일을 작성하세요. */  
+        #sec3 div{
+            border: 1px solid gray;
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            display:inline-block;
+            box-shadow: 3px 3px 3px black;
+        }   
+
+        @keyframes ani {
+            from {
+                background-color: red;
+            }
+            50% {
+                background-color: skyblue;
+            }
+            to {
+                background-color: blue;
+            }
+        }
+
+        #sec3  :hover {
+            position: relative;
+            animation-name: ani ;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+            left: 3px;
+            top: 3px;
+            box-shadow: none;
+        }
+        
+
+
+    </style>
+</head>
+<body class="dokdo-regular">
+    <!-- html 내에서는 style 속성을 절대 적용하지 말 것!!
+         태그 내에서 적용된 style 속성은 점수 반영 안함!!!
+     -->
+    <section id="sec1">
+        <h3>Form 꾸미기</h3>
+        <form method="GET" action=""> <!-- form 내부를 완성하세요. -->
+            <label>
+                이름 : <input type="text" placeholder="이름을 입력하세요.">
+            </label>
+            <label>
+                비밀번호 : <input type="password" placeholder="4자리 이상">
+            </label>
+            <label>
+                e-mail : <input type="email" placeholder="id@domain.com">
+            </label>
+            <fieldset>
+                <legend>성별</legend>
+                <label>
+                    <input type="radio" name="gender" value="male" checked>남성
+                    <input type="radio" name="gender" value="female">여성
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>관심분야</legend>
+                <label>
+                    <input type="checkbox" name="interest" value="it" checked>IT
+                    <input type="radio" name="interest" value="AI">인공지능
+                    <input type="radio" name="interest" value="beauty">외모
+                    <input type="radio" name="interest" value="excercise">운동
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend>메뉴 고르기</legend>
+                <label>
+                    <input type="radio" name="menu" value="jjajang">짜장면
+                    <input type="radio" name="menu" value="jjamppong" checked>짬뽕
+                    <input type="radio" name="menu" value="frierice">볶음밥
+                    <input type="radio" name="menu" value="japchebop">잡채밥
+
+                </label>
+            </fieldset>
+        </form>
+    </section>
+
+    <section id="sec2">
+        <h3>dummyimage.com 활용</h3>
+        <!-- <div> 태그를 이용한 낱말 카드 3장 
+            필요한 태그 및 속성을 추가로 사용하여 완성하세요.
+        -->
+        <div class="dv1"><a href="dummyimage.com" target="new">힘내자</a></div>
+        <div class="dv2"><a href="" target="new">강아지</a></div>
+        <div class="dv3"><a href="" target="new">고양이</a></div>
+    </section>
+
+    <section id="sec3">
+        <h3>건반 연주</h3>
+        <div class="dv1">도</div>
+        <div class="dv2">레</div>
+        <div class="dv3">미</div>
+        <div class="dv4">파</div>
+        <div class="dv5">솔</div>
+        <div class="dv6">라</div>
+        <div class="dv7">시</div>
+    </section>
+    
+</body>
+</html>

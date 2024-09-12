@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2주차 HTML Basic</title>
+
+    <style>
+        span {color: red}
+    </style>
+
+</head>
+<body>
+
+    <h3 id="top">링크 만들기</h3>
+    <a href="https://www.naver.com" target="_blank">네이버</a><br>
+    <a href="https://www.google.com" target="_self">구글</a><br>
+    <a href="https://www.smu.ac.kr">상명대</a><br>
+    <a href="#code">맨 아래로</a><br>
+    <a href="./MyFirst.html" target="new">지난 주 페이지</a><br>
+
+
+    <h3>첫 번쨰 과제</h3>
+    <table border=1 width=500>
+        <thead>
+            <tr>
+                <th>교시</th>
+                <th>월</th>
+                <th>화</th>
+                <th>목</th>
+                <th>금</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1교시</td>
+                <td></td>
+                <td rowspan=3 style="color:rgb(101, 78, 122); background:rgb(255, 208, 121);">웹프로그래밍</td>
+                <td></td>
+                <td rowspan=2>일본어 프리토킹</td>
+            </tr>
+            <tr>
+                <td>2교시</td>
+
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3교시</td>
+                <td  rowspan=2>일본어 프리토킹</td>
+
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>4교시</td>
+
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>5교시</td>
+                <td></td>
+                <td rowspan=3>데이터 베이스</td>
+                <td>객체지향프로그래밍</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>6교시</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>7교시</td>
+                <td  rowspan=3>생명과학의 이해</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>8교시</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>9교시</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>10교시</td>
+                <td colspan=3><img src="./images/test.jpg" height="150"></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 id="table">표 만들기</h3>
+    <table border=1 width="500px">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>kor</th>
+                <th>eng</th>
+                <th>math</th>
+                <th>total</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>졸려</th>
+                <th>집</th>
+                <th>가고</th>
+                <th>싶다</th>
+                <th>총총</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>yujin</td>
+                <td>100</td>
+                <td>53</td>
+                <td>67</td>
+                <td>321</td>
+            </tr>
+            <tr>
+                <td>dahyun</td>
+                <td>20</td>
+                <td>100</td>
+                <td>35</td>
+                <td>187</td>
+            </tr>
+            <tr>
+                <td>hyunjin</td>
+                <td>93</td>
+                <td>26</td>
+                <td>43</td>
+                <td>166</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <table border=2>
+        <tr>
+            <td>11</td><td>12</td><td>13</td>
+        </tr>
+        <tr>
+            <td>21</td><td>22</td><td>23</td>
+        </tr>
+    </table>
+
+    <hr>
+    <h3>리스트 연습</h3>
+    <!--    ul>li*3>ul>li*2 +tab    -->
+    <ul>
+        <li>
+            <ul>
+                <li>중식</li>
+                <li>한식</li>
+            </ul>
+        </li>
+        <li>집
+            <ul>
+                <li>김치</li>
+                <li>집가고 싶다</li>
+            </ul>
+        </li>
+        <li>가면
+            <ul>
+                <li>자야지</li>
+                <li>비 그쳤으면..</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h4>좋아하는 괴목</h4>
+    <ol>
+        <li>web programming</li>
+        <li>C programming</li>
+        <li>java programming</li>
+    </ol>
+    <h4>점심 메뉴</h4>
+    <ul>
+        <li>chinese</li>
+        <li>korean</li>
+        <ul>
+            <li>gimbap</li>
+            <li>rice</li>
+            <li>bibimbap</li>
+        </ul>
+        <li>japanese</li>
+    </ul>
+
+    <hr>
+    <h1 alt="head" title="큰 글씨">첫 번째 헤드 사이즈</h1>
+    <br><br><br>
+    <h2>두 번째 헤드 사이즈</h2>
+    <h3>세 번쨰 헤드 사이즈</h3>
+    <div>여러 <span>태그</span>가 없이도 내용 작성은 가능. </div>
+    <div>두 번째 라인도 잘 보이나요?</div>
+    <div>가장 많이 사용하는 <span>태그</span> </div>
+    <div><span>태그</span> 종류가 많네요.</div>
+    <hr />
+
+    <!-- 절대 경로 방식, 쓰지 맙시다..! 상대 경로를 사용합시다.-->
+    <img src=".\images\test.jpg" width="250" height=100 alt="이미지 경로를 찾을 수 없음ㅠ" title="IMAGE">
+    <br>&nbsp;&nbsp;눌린 고양이 <!-- &nbsp == 줄바꿈 없는 공백 -->
+
+    <P>다음 라인에서 시작되는 paragraph</P>
+    &lt;p&gt;태그 다음 위치
+
+    <div>블록태그 : 자동 엔터가 들어가는 종류 - hx, div, p </div>
+    <div>인라인태그 : 엔터 없이 다음 컨텐츠가 옆에 붙여지는 종류 - span img </div>
+
+    <hr>
+    <h3 id="code">1부터 10까지 <del>총합</del>을 구하는 코드</h3>
+    <pre style="background: black; color:aliceblue; width:500px">
+    #include &lt;stdio.h&gt; <!-- < == &lt; / > == &gt; -->
+    int main(void) {
+        int i;
+        int sum =0;
+        for(i = 0; i <= 10; i++) {
+            sum += i;
+        }
+        printf("총 합 : %d \n", sum);
+
+        return 0;
+    }
+    </pre>
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum, rem non suscipit, officia cum deserunt voluptates pariatur cupiditate iste aliquid dignissimos adipisci a ratione, ut neque illum officiis consequatur eaque.
+    </p>
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis veniam recusandae quidem non, architecto, molestiae ducimus alias commodi aperiam eum unde magni distinctio dignissimos repellat. Officia aliquam et porro id!
+    </div>
+
+    <a href="#top">맨 위로</a>
+    
+</body>
+</html>

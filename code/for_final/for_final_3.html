@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>for_final_3</title>
+<script>
+  // DOM 객체 예제 - p 태그의 속성, 스타일, 이벤트 리스너 출력
+  function showPProperties() {
+    let p = document.getElementById("firstP");
+    let text = "p.id = " + p.id + "\n";
+    text += "p.tagName = " + p.tagName + "\n";
+    text += "p.innerHTML = " + p.innerHTML + "\n";
+    text += "p.style.color = " + p.style.color + "\n";
+    text += "p.onclick = " + p.onclick + "\n";
+    text += "p.childElementCount = " + p.childElementCount + "\n";
+    text += "너비 = " + p.offsetWidth + "\n";
+    text += "높이 = " + p.offsetHeight + "\n";
+    alert(text);
+  }
+
+  // CSS 스타일 동적 변경 예제
+  function changeStyle() {
+    let span = document.getElementById("mySpan"); 
+    span.style.color = "green"; // 글자 색 green
+    span.style.fontSize = "30px"; // 글자 크기 30픽셀
+    span.style.display = "block"; // 블록 박스로 변경
+    span.style.width = "6em"; // 박스의 폭 6 글자 크기
+    span.style.border = "3px dotted magenta"; // 3픽셀 점선 magenta 테두리
+    span.style.margin = "20px"; // 상하좌우 여백 20px
+  }
+
+  // innerHTML을 이용한 HTML 콘텐츠 동적 변경
+  function changeInnerHTML() {
+    let p = document.getElementById("firstP");
+    p.innerHTML = "나의 <img src='puppy.png'> 강아지";
+  }
+
+  // this 키워드 활용 예제
+  function change(obj, size, color) {
+    obj.style.color = color;
+    obj.style.fontSize = size;
+  }
+
+  // document 객체의 주요 프로퍼티 출력 예제
+  function printProperties() {
+    let text = "문서 로딩 중일 때 readyState = " + document.readyState + "\n";
+    text += "1. location =" + document.location + "\n";
+    text += "2. URL =" + document.URL + "\n";
+    text += "3. title =" + document.title + "\n";
+    text += "4. head의 id =" + document.head.id + "\n";
+    text += "5. body color =" + document.body.style.color + "\n";
+    text += "6. domain =" + document.domain + "\n";
+    text += "7. lastModified =" + document.lastModified + "\n";
+    text += "8. defaultView = " + document.defaultView + "\n";
+    text += "9. 문서의 로드 완료 후 readyState = " + document.readyState + "\n";
+    text += "10. referrer = " + document.referrer + "\n";
+    text += "11. activeElement = " + document.activeElement.value + "\n";
+    text += "12. documentElement의 태그 이름 = " + document.documentElement.tagName + "\n";
+    alert(text);
+  }
+
+  // 태그 이름으로 DOM 객체 찾기
+  function changeByTagName() {
+    let spanArray = document.getElementsByTagName("span");
+    for(let i = 0; i < spanArray.length; i++) {
+      var span = spanArray[i];
+      span.style.color = "orchid";
+      span.style.fontSize = "20px";
+    }
+  }
+
+  // class 속성으로 DOM 객체 찾기
+  function changeByClassName() {
+    let tagArray = document.getElementsByClassName("place");
+    for(let i = 0; i < tagArray.length; i++) {
+      let tag = tagArray[i];
+      tag.style.color = "orchid";
+      tag.style.fontSize = "20px";
+      tag.style.textDecoration = "underline";
+    }
+  }
+
+  // 문서의 동적 구성 예제 - DIV 생성 및 삭제
+  function createDIV() {
+    let obj = document.getElementById("parent");
+    let newDIV = document.createElement("div");
+    newDIV.innerHTML = "새로 생성된 DIV입니다.";
+    newDIV.setAttribute("id", "myDiv");
+    newDIV.style.backgroundColor = "yellow";
+    newDIV.onclick = function() {
+      let p = this.parentElement; // 부모 HTML 태그 요소
+      p.removeChild(this); // 자신을 부모로부터 제거
+    }; 
+    obj.appendChild(newDIV);
+  }
+</script>
+</head>
+<body onload="printProperties()">
+
+<h3>자바스크립트 종합 예제</h3>
+<hr>
+
+<!-- DOM 객체의 프로퍼티, 스타일, 이벤트 리스너 출력 -->
+<p id="firstP" style="color:blue; background:yellow" onclick="showPProperties()">
+    이것은 <span style="color:red">문장입니다.</span>
+</p>
+
+<!-- CSS 스타일 동적 변경 -->
+<p style="color:blue">이것은 
+    <span id="mySpan" style="color:red">문장입니다.</span>
+</p>
+<input type="button" value="스타일변경" onclick="changeStyle()">
+
+<!-- innerHTML을 이용한 HTML 콘텐츠 동적 변경 -->
+<p id="firstP" style="color:blue" onclick="changeInnerHTML()">
+  여기에 <span style="color:red">클릭하세요</span>
+</p>
+
+<!-- this 키워드 활용 예제 -->
+<button onclick="change(this, '30px', 'red')">버튼</button>
+<button onclick="change(this, '30px', 'blue')">버튼</button>
+<div onclick="change(this, '25px', 'orange')">
+  여기 클릭하면 크기와 색 변경
+</div>
+
+<!-- 태그 이름으로 DOM 객체 찾기 -->
+<h3>내가 좋아하는 과일
+ <button onclick="changeByTagName()">누르세요</button>
+</h3>
+<hr>
+저는 빨간 <span>사과</span>를 좋아해서
+아침마다 한 개씩 먹고 있어요. 운동할 때는 중간 중간에
+<span>바나나</span>를 먹지요. 탄수화물 섭취가 빨라
+힘이 납니다. 또한 달콤한 향기를 품은 <span>체리</span>와
+여름 냄새 물씬 나는 <span>자두</span>를 좋아합니다.
+
+<!-- class 속성으로 DOM 객체 찾기 -->
+<h3>가고 싶은 곳 먹고 싶은 것</h3><br>
+ <button onclick="changeByClassName()">가고 싶은 곳</button>
+</h3>
+<hr>
+<p><span class="place">제주도</span>에 가서 <span class="food">흑돼지</span>를 먹고 싶고요.
+<span class="place">독도</span>에 가서 <span class="food">독도 새우</span>도 먹고 싶어요. 제일 가고 싶은 곳 <span class="place">부산 자갈치 시장</span>에서 <span class="food">꼼장어 구이</span>도 먹고 싶어요</p>
+
+<!-- 문서의 동적 구성 예제 - DIV 생성 및 삭제 -->
+<h3>DIV 객체를 동적으로 생성 삽입 삭제하는 예제</h3>
+<hr>
+<p>DOM 트리에 동적으로 객체를 삽입할 수 있습니다.
+createElement() appendChild() 
+removeChild() 메소드를 이용하여 새로운 객체를 생성
+삽입 삭제하는 예제입니다.</p>
+<a href="javascript:createDIV()">DIV 생성</a><p>
+<p id="parent"></p>
+
+</body>
+</html>

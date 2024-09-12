@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>for_final_5</title>
+<!--  <img src="http://loremflickr.com/300/300/cat" width="300"> 더미이미지 -->
+<script>
+  // window 객체 예제 - 윈도우 열기
+  function openNewWindow() {
+    window.open("http://www.naver.com", "myWin", "width=600, height=600");
+  }
+
+  // window 객체 예제 - 윈도우 닫기
+  let newWin = null;
+  function openAndCloseWindow() {
+    newWin = window.open("http://www.naver.com", "myWin", "width=600, height=600");
+  }
+  function closeNewWindow() {
+    if (newWin) {
+      newWin.close();
+    }
+  }
+
+  // setTimeout과 clearTimeout 예제
+  let timerID = null;
+  function startTimeout() {
+    timerID = setTimeout(function() {
+      alert("5초가 지났습니다.");
+    }, 5000);
+  }
+  function cancelTimeout() {
+    clearTimeout(timerID);
+  }
+
+  // setInterval과 clearInterval 예제
+  let intervalID = null;
+  function startInterval() {
+    intervalID = setInterval(function() {
+      let span = document.getElementById("rotatingText");
+      let text = span.innerHTML;
+      span.innerHTML = text.slice(1) + text.charAt(0);
+    }, 200);
+  }
+  function stopInterval() {
+    clearInterval(intervalID);
+  }
+
+  // window 객체 - 윈도우 위치 및 크기 조절
+  function moveWindow() {
+    window.moveBy(10, 10);
+  }
+  function resizeWindow() {
+    window.resizeBy(10, 10);
+  }
+
+  // 웹 페이지 스크롤
+  function scrollPage() {
+    window.scrollBy(0, 10);
+  }
+
+  // window.print() 예제
+  function printPage() {
+    window.print();
+  }
+
+  // navigator 객체 예제 - 브라우저 정보 출력
+  function printNavigator() {
+    let text = "<span>appCodeName</span>: " + navigator.appCodeName + "<br>";
+    text += "<span>appName</span>: " + navigator.appName + "<br>";
+    text += "<span>appVersion</span>: " + navigator.appVersion + "<br>";
+    text += "<span>platform</span>: " + navigator.platform + "<br>";
+    text += "<span>product</span>: " + navigator.product + "<br>";
+    text += "<span>userAgent</span>: " + navigator.userAgent + "<br>";
+    text += "<span>vendor</span>: " + navigator.vendor + "<br>";
+    text += "<span>language</span>: " + navigator.language + "<br>";
+    text += "<span>onLine</span>: " + navigator.onLine + "<br>";
+    text += "<span>cookieEnabled</span>: " + navigator.cookieEnabled + "<br>";
+    text += "<span>javaEnabled()</span>: " + navigator.javaEnabled() + "<br>";
+    text += "<span>plugins.length</span>: " + navigator.plugins.length + "<br>";
+    for (let j = 0; j < navigator.plugins.length; j++) {
+      text += "plugins[" + j + "] : <blockquote>";
+      text += navigator.plugins[j].name + "<br>";
+      text += "<i>" + navigator.plugins[j].description + "</i><br>";
+      text += navigator.plugins[j].filename + "</blockquote>";
+    }
+    document.getElementById("navigatorInfo").innerHTML = text;
+  }
+
+  // screen 객체 예제 - 스크린 장치 정보 출력
+  function printScreen() {
+    let text = "availHeight:".fontcolor('blue') + screen.availHeight + "<br>";
+    text += "availWidth:".fontcolor('blue') + screen.availWidth + "<br>";
+    text += "colorDepth:".fontcolor('blue') + screen.colorDepth + "<br>";
+    text += "pixelDepth:".fontcolor('blue') + screen.pixelDepth + "<br>";
+    text += "height:".fontcolor('blue') + screen.height + "<br>";
+    text += "width:".fontcolor('blue') + screen.width + "<br>";
+    document.getElementById("screenInfo").innerHTML = text;
+  }
+
+  // location 객체 예제 - 웹 사이트 접속
+  function loadSite() {
+    let select = document.getElementById("site");
+    window.location = select.options[select.selectedIndex].value;
+  }
+
+  // history 객체 예제 - 웹 페이지 이동
+  function goBack() {
+    history.back();
+  }
+  function goForward() {
+    history.forward();
+  }
+
+  window.onload = function() {
+    printNavigator();
+    printScreen();
+  };
+</script>
+</head>
+<body>
+
+<h3>자바스크립트 종합 예제</h3>
+<hr>
+
+<!-- window 객체 예제 - 윈도우 열기 -->
+<button onclick="openNewWindow()">새 윈도우 열기</button>
+
+<!-- window 객체 예제 - 윈도우 닫기 -->
+<button onclick="openAndCloseWindow()">윈도우 열기</button>
+<button onclick="closeNewWindow()">윈도우 닫기</button>
+
+<!-- setTimeout과 clearTimeout 예제 -->
+<button onclick="startTimeout()">5초 후 경고창</button>
+<button onclick="cancelTimeout()">타이머 취소</button>
+
+<!-- setInterval과 clearInterval 예제 -->
+<p id="rotatingText" style="background-color:yellow">자동 회전하는 텍스트입니다.</p>
+<button onclick="startInterval()">텍스트 회전 시작</button>
+<button onclick="stopInterval()">텍스트 회전 중단</button>
+
+<!-- window 객체 - 윈도우 위치 및 크기 조절 -->
+<button onclick="moveWindow()">윈도우 이동</button>
+<button onclick="resizeWindow()">윈도우 크기 조절</button>
+
+<!-- 웹 페이지 스크롤 -->
+<button onclick="scrollPage()">페이지 스크롤</button>
+
+<!-- window.print() 예제 -->
+<button onclick="printPage()">페이지 프린트</button>
+
+<!-- navigator 객체 예제 - 브라우저 정보 출력 -->
+<h3>브라우저에 관한 정보</h3>
+<div id="navigatorInfo"></div>
+
+<!-- screen 객체 예제 - 스크린 장치 정보 출력 -->
+<h3>스크린 장치 정보</h3>
+<div id="screenInfo"></div>
+
+<!-- location 객체 예제 - 웹 사이트 접속 -->
+<h3>웹 사이트 접속</h3>
+사이트 선택 :
+<select id="site">
+  <option value="http://www.naver.com" selected>네이버</option>
+  <option value="http://www.google.com">구글</option>
+  <option value="http://www.microsoft.com">마이크로소프트</option>
+</select>
+<button onclick="loadSite()">사이트 접속</button>
+
+<!-- history 객체 예제 - 웹 페이지 이동 -->
+<h3>웹 페이지 이동</h3>
+<button onclick="goBack()">이전 페이지</button>
+<button onclick="goForward()">다음 페이지</button>
+
+</body>
+</html>

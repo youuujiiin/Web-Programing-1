@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Test</title>
+    <script>
+        document.write("<h3>hello javascript</h3><br><hr>");
+    </script>
+</head>
+<body>
+    <script>
+        let a; //중복 선언 불가능
+        var b; //자바스크립트에서의 변수 선언, 타입을 구분하지 않는다.중복 선언 가능
+
+        let sanvingResult;
+        saving3Result2;
+
+        let r = confirm("확인 취소 선택");
+        document.write(r);
+    </script>
+    <input type="color" value="나 버튼!"
+        onchange="document.body.style.background=this.value;">
+    <hr>
+
+    <img src="http://loremflickr.com/300/300/cat" width="300"
+        onclick="this.width = '200' "> 
+        <!-- onclick="this.src='http://loremflickr.com/300/300/dog" -->
+        <!--여기는 이렇게-->
+        <hr>
+        <script>
+            //이런 주석 가능. 프로그래밍 영역
+            document.write("second hello javascript \n"); //\n의미 없음
+        </script>
+        <hr>
+        <a href="javascript:alert('진짜 클릭했네...')">나 클릭해 봐요!</a><br>
+
+        <script>
+            /*
+            let re = prompt("숫자를 입력하세요", 100);
+            //모든 입력은 문자열
+            document.write(re+100);
+            let re = parseInt(prompt("숫자를 입력 :"));
+            document.write(re+100);
+
+            document.write(prompt("입력")); */
+            //입력은 1가지 뿐, prompt() - 모든 입력은 문자열로 입력처리
+            //출력은 3가지, document.write() - 화면상에 출력
+            //             alert() - 새로운 창(dialog)가 뜨는 출력 - 확인 버튼만 존재
+            //             confirm() - 확인/취소 버튼이 존재함.
+            
+        </script>
+        <hr>
+        <h3>여기는 바닥이에요.</h3>
+
+</body>
+</html>

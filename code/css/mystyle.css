@@ -1,0 +1,28 @@
+p {
+    color : olive;
+    background-color: beige;
+    font-size: 30px;
+}
+span {
+    background-color: aquamarine;
+    display: block;
+}
+.dv2 {
+    color : coral;
+}
+section {
+    border-color : lightpink;
+    border-width : 2px;
+    border-style : dotted;
+    margin-top : 10px;
+}
+#sec2 {
+    background-color: aliceblue;
+}
+#sec2 > .dv1 { /* >가 있으면 바로 아래에 있는 것만 찾음. 그냥 띄어쓰기만 하면 중간 폴더?가 있어도 상관X */
+    font-size : 20px;
+    font-weight:bolder;
+}
+hr {
+    border:3px solid grey
+}

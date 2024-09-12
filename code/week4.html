@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자기소개 페이지</title>
+    <style>
+        body {
+            color : rgb(54, 54, 54);
+            background-color: beige;
+        }
+        label { /*css에서의 주석처리*/  /*label tag는 inline tag*/
+            color: rgb(82, 194, 194);
+            display: block;
+        }
+    </style> <!-- style 태그는 head안에 있기를 권장. 여러번 들어가도 상관 없음 -->
+</head>
+<body>
+    <h3> 폼을 이용한 자기 소개</h3>
+    <form method = "GET" action = ""> <!--action에 네이버 검색 주소-->
+        <fieldset>
+            <legend><h3> 기본정보 </h3></legend>
+            <label>
+                이 름 : <input type = "text" placeholder="이름을 입력하세요">
+            </label>
+            </label>
+            <label>
+                나 이 : <input type = "number" min="0" max="10" step="1">
+            </label>
+            <label>
+                이메일 : <input type = "email" placeholder="id@domain 형식">
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend><h3>부가 정보</h3></legend>
+            <label>
+                자기소개 : 
+                <textarea cols = "30" rows="10">
+                </textarea>
+
+                추가 숙제
+                <input type="radio">
+                <input type="checkbox">
+                검색 기능 이용해 보기
+                <input type="button" value="">
+                <button></button>
+                배경색 : <input type="color" onchange="document.body.style.backgroundColor=this.value">
+                글자색 : <input type="color" onchange="document.body.style.color=this.value">
+            </label>
+        </fieldset>
+        <input type="submit" value="검색하기">
+    </form>
+</body>
+</html>

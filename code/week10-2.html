@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Class</title>
+
+    <script>
+        let a = new Data();
+
+        //생성자 함수 버전
+        /*
+        function Student(k, e, m){
+            // member variable
+            this.kor = k;
+            this.eng = e;
+            this.math = m;
+
+            //method, member function
+            this.average = function(){
+                return (this.kor + this.eng + this.math)/3;
+            }
+
+            //객체 출력을 위한 문자열 생성 합수
+
+            this.toString = function(){
+                let str;
+                str = "k: " + this.kor + " e: " + this.eng + " m: " + this.math + " avg: " + this.average() + "<br>";
+                return str;
+            }
+        }
+
+        window.onload = function(){
+            let j = new Student(95, 97, 89);
+            //j.kor, j.eng, j.math
+            document.write("평균 " + j);
+        } */
+        
+        // class 버전
+        class Student{
+            constructor(k, e, m){
+                this.kor = k;
+                this.eng = e;
+                this.math = m;
+            }
+        }
+
+        // prototype function - 생성자 버전이든 class버튼이든 공총적으로 적용가능
+        Student.prototype,avg.average = function(){
+            return (this.kor + this.eng + this.math)/3;
+        };
+        Student.prototype.toString = function (){
+            let str;
+            str = "k: " + this.kor + " e: " + this.eng + " m: " + this.math + " avg: " + this.average() + "<br>";
+            return str;
+            };
+
+        window.onload = function(){
+            let cls1 = new Array();
+            let num = 35;
+            for (i = 0; i<num; ){
+                k= math.round(Math.random()*20+80);
+                e= math.round(Math.random()*20+80);
+                m= math.round(Math.random()*20+80);
+                cls.push( new Student(k,e,m))
+            }
+            for (i = 0; i<cls1, length; 3++){
+                document.write("<hr>");
+                document.write(cls1[i]);
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

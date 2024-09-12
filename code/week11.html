@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do, Object control</title>
+    <style>
+        section {
+            border: 2px dotted blue;
+            margin: 20px;
+            padding: 10px;
+        }
+        div {
+            display: inline-block;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+    <script>
+        let win = null;
+        window.onload = function(){
+            if(win == null || win.closed) {
+                win = win.open("", "newWin", "width=300, height=400, left=0, top=100");
+                win.document.open();
+                win.document.write("<h1>기말고사가 다가오네요.</h1>");
+                win.document.closed();
+            }
+
+
+            //document, doucument.body
+            //font=zize => dontSise
+            //margnin
+            document.body.style.backgroundColor = 'green'
+
+            let d = document.getElementById("one"); // #one{}
+            d.style.backgroundColor = "yellow"
+            d.style.width = "200px"
+            d.style.visibility = "hidden"
+
+            let n = 5;
+            // Array
+            let m = document.getElementsByClassName("dv2" + n); // .dv2{}
+            for (i = 0; i < m.length; i++)
+            m[1].style.border = "2px ridge purple";
+
+            let t = document.getElementsByTagName("div"); // div{}
+            for(i = 0; i < length; i ){
+                t[i].innerHTML = "changed contents" //태그로 보겠다.
+            }
+            t[I].innerText = "<br>엔터가 들어감(img문구도 넣을 수 있음)" //문자열로 보겠다.
+
+            let r = document.getElementsByName("me")
+            r.style.backgroundColor = "pink"
+
+
+            let img = document.createElement('img');
+            // <img>가 만들어짐, 'div'라면 <div></div>가 만들어지는 것.
+            let dv = document.createElement('div');
+            dv.innerHTML = "New DIV" //<div></div>사이에 New DIV를 넣은 것.
+            img.src = "http://loremflickr.com/320/240/dog"
+            img.width = "200px";
+            img.setAttribute('width', '200px'); //윗줄과 같은 의미, 윗줄은 안되는 경우가 있음.
+            // <img src='....' width='200px'>
+            let par = document.getElementById('wrap')
+            par.appendChild(img);
+            par.appendChild(dv);
+
+            par.removeChild(img);
+
+            /*
+            let w = document.getElementById('wrap');
+            w.innerHTML = "<div?new DIV</div>"
+            w.innerHTML += "<img src='' width='200px" */
+        }
+    </script>
+</head>
+<body>
+
+    <div id="wrap">
+
+    </div>
+
+    <section id="sec1">
+        <div class="dv1" id = "one">contents1-1</div>
+        <div class="dv2" id = "me">contents1-2</div>
+        <div class="dv3">contents1-3</div>
+        <div class="dv4">contents1-4</div>
+        <div class="dv5">contents1-5</div>
+    </section>
+    <section id="sec2">
+        <div class="dv1">contents2-1</div>
+        <div class="dv">contents2-2</div>
+        <div class="dv3">contents2-3</div>
+        <div class="dv4">contents2-4</div>
+        <div class="dv5">contents2-5</div>
+    </section>
+</body>
+</html>

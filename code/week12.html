@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Example</title>
+
+    <style>
+        section {
+            border:1px solid red;
+            margin-bottom:10px;
+        }
+        section div {
+            display: inline-block;
+            width:150px;
+            height:30px;
+            border:1px solid blue;
+        }
+        #sub {
+            width: 140px;
+            position: absolute;
+            left: 170px;
+            top: 90px;
+            background-color: rgb(255, 228, 232);
+            visibility: hidden;
+        }
+        #sub li:hover {
+            background-color: lightyellow;
+        }
+    </style>
+    <script>
+        //let mouseover2 = () => {}; //아래 함수와 같은 뜻
+        let mouseover = function(obj){
+            obj.style.color = 'red';
+            //obj.style.fontSize = '150%';
+            obj.style.background = 'aqua';
+        }
+
+        let mouseout = function(obj){
+            obj.style.color='black';
+            obj.style.background='white';
+        }
+
+        let mover = function(){
+            this.style.color = 'red';
+            //obj.style.fontSize = '150%';
+            this.style.background = 'aqua';
+        }
+        let mout = function(){
+            this.style.color='black';
+            this.style.background='white';
+        }
+        let other = function(){
+            this.style.border = "2px dotted yellow";
+        }
+    </script>
+    <script>
+        window.onload = function(){
+            let dvs = document.getElementsByTagName('div'); // 변수 선언 추가
+            for(let i = 0; i < dvs.length; i++){
+                /*
+                dvs[i].onmouseover = mout;
+                dvs[i].onmouseout = mover;
+                dvs[i].onmouseover = other; //이전 함수 덮어씀.
+                */
+                
+                dvs[i].addEventListener("mouseover", mover);
+                dvs[i].addEventListener("mouseout", mout);
+                dvs[i].addEventListener("mouseover", other); 
+
+            }
+            let d = document.getElementById("dv1-2");
+            d.addEventListener("mouseover", function(){
+                let m = document.getElementById("me");
+                m.innerText = "이미 눌렸다.";
+            });
+
+            let k = document.getElementById("dv2-2");
+            k.addEventListener("mouseover", function(){
+                let sub = document.getElementById("sub");
+                sub.style.visibility = "visible";
+            });
+            k.addEventListener("mouseout", function(){
+                let sub = document.getElementById("sub");
+                sub.style.visibility = "hidden";
+            });
+            let submenu = document.getElementById("sub");
+            submenu.addEventListener("mouseenter",function(){
+                this.style.visibility = 'visible';
+            });
+            submenu.addEventListener("mouseleave", function(){
+                this.style.visibility = 'hidden';
+            });
+        }
+    </script>
+</head>
+<body>
+    <section class="sec1">
+        <div id="dv1-1"
+            onmouseover="mouseover(this)"
+            onmouseout="mouseout(this)"
+            >Inner Contents</div>
+        <div id="dv1-2">Inner Contents</div>
+        <div id="dv1-3">Inner Contents</div>
+        <div id="dv1-4">Inner Contents</div>
+        <div id="dv1-5">Inner Contents</div>
+    </section>
+    <section class="sec2">
+        <div id="dv2-1" onclick="this.style.fontWeight='bolder'">Inner Contents</div>
+        <div id="dv2-2">Inner Contents</div>
+        <div id="dv2-3">Inner Contents</div>
+        <div id="dv2-4">Inner Contents</div>
+        <div id="dv2-5">Inner Contents</div>
+    </section>
+
+    <div id="me"
+        onclick="this.style.color='red'"
+        onmouseover="this.style.background='pink'"
+        onmouseout="this.style.background='white'"
+        >나를 눌러줘</div>
+    <hr>
+
+    <section id="sub">
+        <ul> <!-- ul 추가 -->
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+            <li>menu4</li>
+        </ul>
+    </section>
+</body>
+</html>

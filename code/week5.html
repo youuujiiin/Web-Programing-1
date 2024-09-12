@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 Advance</title>
+    <style>
+        section {
+            border : 2px solid red;
+            padding : 20px;
+        }
+        /*
+        div {
+            border : 1px solid green;
+            margin :10px;
+            width:100px;
+            height : 100px;
+            display: inline-block;
+            background-color: bisque
+        }
+        #sc2 .dv1 {
+            position: relative; /*본인기준 상대적 위치 방향은 콘텐츠 안 쪽 방향이 +*/
+            /*top :20px;
+            left:20px;*/
+        
+        #sc2 .dv2 {
+            position:absolute;
+            top : 200px;
+            left : 20px;
+        }
+        #sc2 .dv3 {
+            position: fixed;
+            right: 20px;
+            bottom : 20px;
+        }
+        #sc2 .dv4 {
+            float: right;
+        }
+        #p {
+            border: 1px solid black;
+            float :left;
+            width:100px
+        }
+        #sc3 div {
+            position: relative;
+        }
+        #sc3 .dv2:hover {
+            background-color: red;
+            top :20px;
+            left : 20px;
+        }*/
+
+        #sc {
+            border: 2px solid red;
+            padding: 20px;
+        }
+        #sc5 div {
+            width:80px;
+            height:150px;
+            background:yellowgreen;
+            position: relative;
+        }
+        #sc5 .dv2{
+            left:80px;
+            top:-20px;
+            z-index: 20;
+        }
+
+        #sc {
+            overflow:auto;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!--section#sc>div.dv${card $}*5-->
+    <section id="sc5">
+        <div class="dv1">card 1 Lorem ipsum dolor sit amet.</div>
+        <div class="dv2">card 2 Lorem ipsum dolor sit amet.</div>
+        <div class="dv3">card 3 Lorem ipsum dolor sit amet.</div>
+        <div class="dv4">card 4 Lorem ipsum dolor sit amet.</div>
+        <div class="dv5">card 5 Lorem ipsum dolor sit amet.</div>
+    </section>
+
+    <h3>광고 테스트</h3>
+    <section>
+        <p id="p">나는 광고입니다 
+            Lorem ipsum dolor sit amet.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, eveniet!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut soluta accusamus porro alias deleniti necessitatibus qui, laborum perferendis quisquam distinctio suscipit adipisci. Magni neque officia ipsam alias illum aliquid quis.
+        </p>
+    </section>
+
+    <!--(section#sc$>div.dv${Content $}*4)*3-->
+    <section id="sc1">
+        <div class="dv1">Content 1</div>
+        <div class="dv2">Content 2</div>
+        <div class="dv3">Content 3</div>
+        <div class="dv4">Content 4</div>
+    </section>
+    <section id="sc2">
+        <div class="dv1">Content 1</div>
+        <div class="dv2">Content 2</div>
+        <div class="dv3">Content 3</div>
+        <div class="dv4">Content 4</div>
+    </section>
+    <section id="sc3">
+        <div class="dv1">Content 1</div>
+        <div class="dv2">Content 2</div>
+        <div class="dv3">Content 3</div>
+        <div class="dv4">Content 4</div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Object 2</title>
+    <script>
+        let add = function(a,b){
+            return a + b;
+        }
+        //동작시점 제어
+        window.onload = function (){
+            let score = new Array();
+            // int score[10]; = C언어
+            score[0] = 100;
+            score[1] = add;
+            score[2] = 3.14;
+            score[5] = "Out of Bound";
+            score.push("Hello") //맨 뒤에 추가
+            score.push("<img src='images/test_cat.jpg'>")
+
+            for (i = 0; i < score.length; i++){
+                document.write(score[i] + "<br>");
+            }
+
+            let r = add(7,8);
+            let o = score[1](100, 150);
+            document.write(r + "<br>");
+
+            let h = new String("hello");
+            let h2 = "Hi";
+            h2 += "Jeong" + 123 + "<br>";
+            document.write(h2);
+            document.write(h2.len,"<br");
+
+            // h2,length = 4;
+            //score.length = 10;
+            //length 변수는 자동생성되는 변수이고 수정 불가
+
+            //let m = new Math(); 
+            /*
+            Math,random()
+            Math.PI
+            Math.cos */
+
+            let dice = new Array();
+            for (i=0; i<10; i++){
+                dice[i] = Math.round(Math.random() *5 + 1);
+            
+            }
+            for (i= 0; i< dice.length; i++ ){
+                document.write(dice[i] + "<br>")
+            }        
+        }
+
+    </script>
+</head>
+<body>
+    <!-- Date(), Array(), String(), Math() -->
+    <h2>Array</h2>
+
+</body>
+</html>

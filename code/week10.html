@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>core 객체</title>
+</head>
+<body>
+    <h3>core object 연습, date string math, array</h3>
+    <script>
+        let add = function (a, b) {
+            return a + b;
+        }; 
+
+        let clock = function () {
+            let today = new Date();
+            let h = today.getHours();
+            let m = today.getMinutes();
+            let s = today.getSeconds(); // 수정된 부분
+
+            document.write(h + ":" + m + ":" + s + "<br>");
+
+            setTimeout(clock, 1000); // setInterval 대신 setTimeout 사용
+        };
+
+        clock(); // clock 함수 호출
+    </script>
+</body>
+</html>

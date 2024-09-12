@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Last Exercise</title>
+</head>
+<body>
+    <script>
+        let timer=null
+        function go(){
+            // setInterval()
+            timer = setTimeout(function(){
+                location.href = "http://www.naver.com"
+            }, 3000);
+        }
+        function stop(){
+            // clearInerval()
+            clearTimeout(timer)
+        }
+    </script>
+    <script>
+        let imgList = [
+            "http://loremflickr.com/300/300",
+            "http://loremflickr.com/300/300/dog",
+            "http://loremflickr.com/300/300/paris",
+            "http://loremflickr.com/300/300/rio",
+
+        ];
+        let index = 0;
+        function chImage(o, e){
+            if(e.offsetX < o.width/2){
+                //왼쪽 클릭
+                index--;
+                if(index<0){
+                    index=imgList.length - 1;
+                }
+            }
+            else{
+                //오른쪽 클릭
+                index++;
+                if(index >= imgList.length){
+                    index=0;
+                }
+            }
+            o.src = imgList[index];
+
+        }
+    </script>
+    <h2>Timer</h2>
+
+    <span onmouseover="go()" onmouseout="stop()">네이버</span>
+
+    <hr>
+    <h2>Image Gallery </h2>
+    <img src="http://loremflickr.com/300/300" width="300" onclick="chImage(this, event)" id="image">
+
+</body>
+</html>

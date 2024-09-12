@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event 활용</title>
+    <style>
+        span { 
+            display: inline-block;;
+            border: 1px solid red;}
+    </style>
+</head>
+<body>
+    <script>
+        function down(obj){
+            obj.style.fontStyle='italic';
+        }
+        let up = function(obj){
+            obj.style.fontStyle='normal';
+        }
+        function over(obj){
+            obj.style.color='red';
+        }
+        function enter(obj){
+            obj.style.enter='red';
+        }
+        function out(obj){
+            obj.style.color='black';
+        }
+        function leave(obj){
+            obj.style.color='black';
+        }
+        let w = 0;
+        function wheel(a, b){
+            //console.log(e);
+            if(e.wheelDelta>0){
+                w--;
+                if (w<0)
+                    w=0;
+            }
+            else {
+                w++;
+            }
+            o.style.borderWidth = w+'px'
+        }
+    </script>
+    <div>마우스
+        <span 
+        onmousedown = "down(this)"
+        onmouseup = "up(this)"
+        onmouseover = "over(this)"
+        onmouseout = "out(this)"
+        onwheel = "wheel(event, this)"
+        onmouseenter = "enter(this)"
+        onmouseleave = "leave(this)"
+        >이벤트</span>에 따른 변화 추가
+    </div>
+    <script>
+        function move(e){
+            dv = document.getElementById("Info");
+            str = "";
+            // screenx, screen
+            // offsetx, offsety
+            //clientx, clienty
+        
+            str += "(x, y) = (" + e.x + "," + e.y + ")<br>";
+            str += "(screenx, screeny) = ("+screen.X+","+screen.Y+")<br>";
+            str += "(offsetx, offsety) = ("+e.X+","+e.X+")<br>";
+            str += "(clientx, clienty) = ("+e.x+","+e.y+")<br>";
+
+
+            dv.innerHTML = str;
+        }
+    </script>
+    <section class="sec" style="padding: 20px;border: 1px solid red;">
+        <img src="http://loremflickr.com/400/400" width="400"
+        onmousemove="move(envent)">
+        <div id="info"></div>
+    </section>
+    <hr>
+    <script>
+        function cals(){
+            let ex = document.getElementById("exp").value;
+            let p = eval(exp);
+            document.getElementById("result").value=r;
+        }
+    </script>
+    수식 : <input type="text" id="exp">
+    <input type="button" value="계산하기" onclick="cals()"><br>
+    결과 : <input type="text" id="result">
+
+    <hr>
+    <script>
+        function test(o,e){
+            console.log("클릭 이벤트 발생");
+            console.log(e);
+            e.stopPropagation();
+
+            /*
+            addEventListener('click', test, false) //버블링 이벤트
+            addEventListener('click', test, true) //캡쳐링 이벤트 */
+        }
+    </script>
+    <section onclick="test(this, event)" id = "sc">
+        <div onclick="test(this, event)">event test</div>
+    </section>
+    
+    <script>
+        function check(e){
+            let r = confirm("정말 이동하시겠어요?")
+            /*
+            if(!r) {
+                e.preventDefault(); //기본행동 취소
+            }*/
+            return r;
+        }
+    </script>
+
+    <a href="http://www.naver.com"
+    onclick="return check(event)">네이버로 가기</a><br>
+    <br>
+    <a href="http://www.naver.com"
+    onclick="check(event)">네이버로 가기</a><br>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Event</title>
+</head>
+<body>
+    <h3>Form Event Ex</h3>
+    <script>
+        function hidemenu(){
+            return false;
+        }
+        window.onload = function(){
+            let target = document.getElementById("id");
+            target.onblur= blurInput;
+            target.focus();
+
+            document.oncontextmenu = hidemenu;
+        }
+
+        function blurInput(){
+            i = this.value;
+            info = document.getElementByIda("info");
+            if(i==""){
+                info.innerHTML = "ID는 필수요소 입니다.";
+                this.foucs();
+            }
+            else
+                info.innerHTML = ""
+        }
+    </script>
+    <script>
+        function check(e){
+            let ps1 = document.getElementById("ps").value;
+            let ps2 = document.getElementById("ps2").value;
+
+            if (ps1!=ps2){
+                console.log("패스워드 불일치")
+                e.preventDefault();
+                document.getElementById("ps").focus();
+                document.getElementById("ps2").value="";
+            }
+            else{
+                console.log("문제 없음")
+            }
+        }
+        let total = 0;
+        function calc(o){
+            if(o.checked){
+                total += parseInt(o.value);
+            }
+            else{
+                total -= parseInt(o.value);
+            }
+
+            document.getElementById("result").value=total;
+        }
+
+        function check(){
+            let c = document.getElementsByName("city");
+            for(i=0; i<c.length; i++){
+                if(c[i].checked){
+                    console.log(c[i].value);
+                    break;
+                }
+            }
+        }
+
+    </script>
+    <form method="GET" action="week13.html" onsubmit="check(event)">
+        <label>ID : <input type=text name=id></label>
+        <span id="info" style="color: red;"></span>
+        <br>
+        <label>PW : <input type="password" name="ps" id="ps"></label>
+        <br>
+        <label>PW 확인 : <input type="password" id="ps2"></label>
+        <br>
+        <input type="radio" name="city" value="seoul">서울
+        <input type="radio" name="city" value="busan">부산
+        <input type="radio" name="city" value="cheonan">천안
+        <input type="button" id="btn" value="선택 확인" onclick="check()">
+        
+        <hr>
+        <input type="checkbox" name="prod[]" value="1000" onclick="calc(this)">모자
+        <input type="checkbox" name="prod[]" value="5000" onclick="calc(this)">신발
+        <input type="checkbox" name="prod[]" value="3000" onclick="calc(this)">가방
+        <br>
+        총 구매 금액 : <input type="text" id="result">
+        <br>
+
+        <script>
+            function imgchange(){
+                let s = document.getElementById("sel");
+                console.log(s.value);
+                // s.options[s.options.selectiedIndex].value
+                document.getElementById("image").src = s.value;
+            }
+        </script>
+        <select name="sel" id="sel" onchange="imgchange()">
+            <option value="http://loremflickr.com/200/200">고양이</option>
+            <option value="http://loremflickr.com/200/200/dog">강아지</option>
+            <option value="http://loremflickr.com/200/200/paris">파리</option>
+            <option value="http://loremflickr.com/200/200/rio">리우</option>
+        </select>
+        <img src="" width="200" id="image">
+        <hr>
+
+        <input type="submit" value="제출하기">
+    </form>
+</body>
+</html>

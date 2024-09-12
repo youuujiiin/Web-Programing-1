@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>for_final_4</title>
+<script>
+  // 이벤트 리스너 예제 - HTML 태그 내에 이벤트 리스너 작성
+  function changeColor(obj, color) {
+    obj.style.backgroundColor = color;
+  }
+
+  // DOM 객체의 이벤트 리스너 프로퍼티에 리스너 등록
+  function init() {
+    let p = document.getElementById("p");
+    p.onmouseover = function() { changeColor(p, 'orchid'); };
+    p.onmouseout = function() { changeColor(p, 'white'); };
+  }
+
+  // addEventListener() 메소드 사용
+  function initWithAddEventListener() {
+    let p = document.getElementById("p2");
+    p.addEventListener("mouseover", function() { changeColor(p, 'orchid'); });
+    p.addEventListener("mouseout", function() { changeColor(p, 'white'); });
+  }
+
+  // 이벤트 객체 전달받기
+  function handleEvent(e) {
+    alert(e.type); // 이벤트 종류 출력
+  }
+
+  // 이벤트 객체의 프로퍼티 출력
+  function showEventProperties(e) {
+    let text = "type: " + e.type + "<br>" 
+             + "target: " + e.target + "<br>"
+             + "currentTarget: " + e.currentTarget + "<br>"
+             + "defaultPrevented: " + e.defaultPrevented;
+    document.getElementById("eventProperties").innerHTML = text;
+  }
+
+  // 이벤트의 디폴트 행동 취소
+  function preventDefaultAction(e) {
+    e.preventDefault();
+  }
+
+  // 이벤트 흐름 예제
+  function capturePhase(e) {
+    let obj = e.currentTarget;
+    let tagName = obj.tagName;
+    document.getElementById("eventFlow").innerHTML += "<br>capture 단계 : " + tagName + " 태그 " + e.type + " 이벤트";
+  }
+
+  function bubblePhase(e) {
+    let obj = e.currentTarget;
+    let tagName = obj.tagName;
+    document.getElementById("eventFlow").innerHTML += "<br>bubble 단계 : " + tagName + " 태그 " + e.type + " 이벤트";
+  }
+
+  // 마우스 이벤트 - onmousemove
+  function showMousePosition(e) {
+    let text = "버튼=" + e.button + "<br>"
+             + "(screenX, screenY)=" + e.screenX + "," + e.screenY + "<br>"
+             + "(clientX, clientY)=" + e.clientX + "," + e.clientY + "<br>"
+             + "(offsetX, offsetY)=" + e.offsetX + "," + e.offsetY + "<br>"
+             + "(x, y)=" + e.x + "," + e.y + "\n";
+    document.getElementById("mousePosition").innerHTML = text;
+  }
+
+  // new Image()로 이미지 로딩
+  function loadImage() {
+    let img = new Image();
+    img.src = "media/banana.png";
+    document.getElementById("myImg").src = img.src;
+  }
+
+  // onblur와 onfocus
+  function checkFilled(obj) {
+    if (obj.value == "") {
+      obj.focus();
+    }
+  }
+
+  window.onload = function() {
+    init();
+    initWithAddEventListener();
+  };
+</script>
+</head>
+<body>
+
+<h3>자바스크립트 종합 예제</h3>
+<hr>
+
+<!-- HTML 태그 내에 이벤트 리스너 작성 -->
+<p onmouseover="changeColor(this, 'orchid')" onmouseout="changeColor(this, 'white')">
+  HTML 태그 내에 이벤트 리스너 작성
+</p>
+
+<!-- DOM 객체의 이벤트 리스너 프로퍼티에 리스너 등록 -->
+<p id="p">DOM 객체의 이벤트 리스너 프로퍼티에 리스너 등록</p>
+
+<!-- addEventListener() 메소드 사용 -->
+<p id="p2">addEventListener() 메소드 사용</p>
+
+<!-- 이벤트 객체 전달받기 -->
+<p id="eventListener" onmouseover="handleEvent(event)">이벤트 객체 전달받기</p>
+
+<!-- 이벤트 객체의 프로퍼티 출력 -->
+<p id="eventPropertiesText" onclick="showEventProperties(event)">이벤트 객체의 프로퍼티 출력</p>
+<div id="eventProperties"></div>
+
+<!-- 이벤트의 디폴트 행동 취소 -->
+<a href="http://www.naver.com" onclick="preventDefaultAction(event)">이동 안되는 링크</a>
+
+<!-- 이벤트 흐름 -->
+<div id="eventFlow"></div>
+<form>
+  <input type="button" value="테스트" id="button">
+</form>
+<script>
+  document.body.addEventListener("click", capturePhase, true); // 캡쳐 단계(1)
+  document.getElementById("button").addEventListener("click", bubblePhase, false); // 버블 단계(2)
+  document.body.addEventListener("click", bubblePhase, false); // 버블 단계(3)
+</script>
+
+<!-- 마우스 이벤트 - onmousemove -->
+<img src="media/beach.png" onmousemove="showMousePosition(event)">
+<div id="mousePosition"></div>
+
+<!-- new Image()로 이미지 로딩 -->
+<p><img id="myImg" src="media/apple.png" alt="."></p>
+<button onclick="loadImage()">이미지 로딩</button>
+
+<!-- onblur와 onfocus -->
+<form>
+  이름 <input type="text" id="name" onblur="checkFilled(this)">
+  학번 <input type="text">
+</form>
+
+</body>
+</html>

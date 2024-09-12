@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조유진 자기소개 페이지</title>
+    <style>
+        body {
+            color : rgb(54, 54, 54);
+            background-color: beige;
+        }
+        label { 
+            color: rgb(82, 194, 194);
+            display: block;
+        }
+    </style> 
+</head>
+<body>
+    <h3> 폼을 이용한 자기 소개</h3>
+    <form method = "GET" action = "http://search.naver.com/search.naver"> <!--action에 네이버 검색 주소-->
+        <fieldset>
+            <legend><h3> 기본정보 </h3></legend>
+            <label>
+                이 름 : <input type = "text" placeholder="조유진">
+            </label>
+            </label>
+            <label>
+                나 이 : <input type = "number" min="0" max="100" step="1">
+            </label>
+            <label>
+                이메일 : <input type = "email" placeholder="id@domain 형식">
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend><h3>부가 정보</h3></legend>
+            <label>
+                자기소개
+                <br>
+                <textarea cols = "30" rows="10">
+                </textarea>
+
+                <br><br>
+                취미활동
+                <input type="radio" name="hobby" value="book">독서
+                <input type="radio" name="hobby" value="excercise">운동
+                <input type="radio" name="hobby" value="walk">산책
+                <input type="radio" name="hobby" value="drawing">그림
+                <br>
+                좋아하는 과목
+                <input type="checkbox" name="fav_sub[]" value="korean">국어
+                <input type="checkbox" name="fav_sub[]" value="math">수학
+                <input type="checkbox" name="fav_sub[]" value="society">사회
+                <input type="checkbox" name="fav_sub[]" value="science">과학
+                <br>
+                <!--검색 기능 이용해보기
+                <input type="button" value="">
+                <button>버튼2</button> -->
+
+                <br><br>
+                배경색 : <input type="color" onchange="document.body.style.backgroundColor=this.value">
+                글자색 : <input type="color" onchange="document.body.style.color=this.value">
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend><h3>네이버 검색</h3></legend>
+            <input type="text" name="query">
+            <input type="submit" value="검색하기">
+        </fieldset>
+        
+    
+    </form>
+</body>
+</html>

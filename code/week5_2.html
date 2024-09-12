@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5_2 리스트 꾸미기</title>
+    <style>
+        #sec1 ul{
+            background-color: burlywood;
+            padding:20px 10px;
+        }
+        #sec1 ul li {
+            background-color: bisque;
+            margin:10px;
+            list-style-position: inside;
+            list-style-type: none;
+            height:50px;
+            display: inline-block;
+        }
+        *{
+            margin:0px;
+        }
+        nav {
+            background: rgb(175, 189, 146);
+            padding:20px;
+        }
+        nav li {
+            font-size:larger;
+            font-weight:bolder;
+            color: rgb(107, 96, 76);
+            list-style-type: none;
+            display: inline-block;
+            margin: 0px 20px;
+        }
+        nav li:hover {
+            color:wheat;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: rgb(107, 96, 76);
+        }
+        nav a:hover {
+            color:wheat;
+        }
+        nav li:active{
+            position: relative;
+            left: 2px;
+            top: 2px;
+        }
+    </style>
+    <style>
+        table {
+            margin:20px 8px;
+            border-top:1px solid rgb(0, 0, 0);
+            border-bottom:1px solid rgb(0, 0, 0);
+            border-collapse: collapse;
+            width: 400px;
+            height:200px;
+        }
+        tr, td, th {
+            /*border:1px dotted white;*/
+        }
+        thead, tfoot {
+            background: darkgray;
+        }
+        tbody tr :nth-child(odd){
+            /*background-color: gray;*/
+
+        }
+        tr :hover {
+            background-color: green;
+        }
+        td {
+            text-align: center;
+        }
+    </style>
+    <style>
+        label {
+            display: block;
+            margin:10px;
+        }
+        input[type=text]:focus, input[type=email]:hover {
+            color:rebeccapurple;
+            font-size: 120%;
+            background: aliceblue;
+            border:5px ridge brown;
+            border-radius: 20px;
+        }
+    </style>
+    <style>
+        #wrap {
+            margin :10px;
+            width:200px;
+            height:200px;
+            color:lightgray;
+            border: 2px dotted green;
+            background-image:url("images/test_cat.jpg");
+            background-size :200px 200px;
+            background-position: center center;
+            transition: background-size 0.5s;
+            /*transition: color 2s; 하나만 적용 됨*/
+        }
+        #wrap:hover {
+            background-size: 230px 230px;
+            color: red
+        }
+        h4 {
+            transition: font-size 2s;
+        }
+        h4 :hover {
+            font-size:300%
+        }
+    </style>
+    <style>
+        @keyframes myAni {
+            from {color:red;
+                font-size:15px;}
+            10% {color:greenyellow;
+                font-size: 10px;}
+            to {color:blue;
+                font-size: 30px;}
+        }
+        span {
+            color: pink;
+            font-size: 10px;
+        }
+        span:hover{
+            animation-name: myAni;
+            animation-duration: 3s;
+            animation-iteration-count: 2; /* intinite*/
+        }
+    </style>
+</head>
+<body>
+    <h3>animation</h3>
+    <span>ANIMATION</span>
+
+    <h4>transition - 스무스한 변환</h4>
+    <div id="wrap">
+        Lorem ipsum dolor sit amet.
+
+    </div>
+
+    <hr>
+    <br><br><br>
+    <h3>Form Styling</h3>
+    <form method="POST" action="">
+        <fieldset>
+            <legend>자기소개</legend>
+            <label>이름 : <input type="text" placeholder="이름쓰기"></label>
+            <label>이메일 : <input type="email" placeholder="이메일"></label>
+            <label>소개글 :
+                <textarea rows="10"></textarea>
+            </label>
+
+            <input type="button" value="제출하기">
+        </fieldset>
+
+    </form>
+
+    <hr>
+    <br><br><br>
+
+    <h3>table 꾸미기</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>HTML</th>
+                <th>CSS</th>
+                <th>Javascript</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>정정정</td>
+                <td>98</td>
+                <td>99</td>
+                <td>97</td>
+            </tr>
+            <tr>
+                <td>승승승</td>
+                <td>75</td>
+                <td>79</td>
+                <td>78</td>
+            </tr>
+            <tr>
+                <td>도도도</td>
+                <td>75</td>
+                <td>79</td>
+                <td>78</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>합계</td>
+                <td>100</td>
+                <td>299</td>
+                <td>439</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <hr>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <nav id="menu">
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="http://search.naver.com/search.naver?query=Cappuccino" target="new">Cappuccino</a></li>
+            <li><a href="http://search.naver.com/search.naver?query=Cafe au lait" target="new">Cafe au lait</a></li>
+            <li><a href="http://search.naver.com/search.naver?query=Americano" target="new">Americano</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <h3>커피 메뉴</h3>
+    <section id="sec1">
+    <ul>
+        <li>Espresso</li>
+        <li>Cappuccino</li>
+        <li>Cafe Latte</li>
+        <li>Choco Latte</li>
+        <li>Ice Americano</li>
+    </ul>
+    </section>
+</body>
+</html>

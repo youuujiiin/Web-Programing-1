@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model</title>
+
+
+    <style>
+        section {
+            border: 2px solid salmon;
+            padding: 10px 20px 30px 40px;/*내부 여백*/
+            margin-left: 20px; /*외부 여백*/
+        }
+        div {
+            border: 2px dotted skyblue;
+            margin: 10px 20px 30px;
+            width : 200px;
+            height: 50px;
+            border-radius: 10px 50px;
+        }
+        div:hover {
+            background-color: aqua;
+            color: white;
+        }
+        img {
+            border : 15px ridge silver;
+        }
+        p {
+            width: 500;
+            height: 500;
+            border: 2px solid brown;
+            background-image: url("images/test_cat2.png");
+            background-repeat: repeat-y;
+            background-position-x: center;
+            background-size: 200px 200px;
+        }
+        p:hover {
+            background-size: 250px 250px;
+            width: 500px;
+            height: 500px;
+
+            cursor: wait;
+        }
+        header {
+            font-weight: bolder;
+            font-size: 200%;
+            text-shadow: 4px 4px 5px gray;
+        }
+        p {
+            box-shadow: 4px 4px 5px rosybrown;
+        }
+    </style>
+</head>
+<body>
+    <header>그림자 연습</header>
+    <br>
+    <section>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis impedit veritatis quisquam consectetur reiciendis cupiditate suscipit. Exercitationem quas amet, totam quibusdam provident alias laborum necessitatibus commodi quasi id quia soluta.</p>
+    </section>
+    <!--section>div.dv${실제 콘텐츠 내용 $}*3-->
+    <section>
+        <div class="dv1">실제 콘텐츠 내용 1</div>
+        <div class="dv2">실제 콘텐츠 내용 2</div>
+        <div class="dv3">실제 콘텐츠 내용 3</div>
+    </section>
+    <h3>My Gallery</h3>
+    <img src="http://loremflickr.com/500/300">
+    
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web-form</title>
+</head>
+<body>
+    <h3>검색기능 사용해보기</h3>
+    <!--보통 action에서 백엔드로 연결되도록 설계-->
+    <form id="form" method="GET" action="http://search.naver.com/search.naver">
+        <!-- 폼 요소 -->
+        검색어 : <input type="text" name="query">
+        <br>
+        <input type="text" name="'id">
+
+        <input type="submit" value="검색하기">
+
+    </form>
+
+    <hr>
+
+    <form  method="POST" action="week2_1.html"> <!--get은 내용이 url에 공개, post는 내용이 아닌 action만 url에 표시-->
+        ID : <input type="text" name="id" placeholder="id를 입력해주세요" value="you"><br>
+        PW : <input type="password" name="pass" placeholder="pw는 8자리 이상">
+        <input type="submit" value="로그인하기">
+
+    </form>
+
+    <hr>
+
+    <form>
+        <h3>자기소개 정보입력</h3>
+        <form method="GET" action="">
+            이름 : <input type="text" name="name"><br>
+            성별 :
+            <label><input type="radio" name="gender" value="male"> 남성</label>
+            <label><input type="radio" name="gender" value="female" checked> 여성</label>
+            <br>
+            학년 : 
+            <label><input type="radio" name="grade" value="1"> 1학년 </label> <!--radio 버튼, name이 같을 경우 중복선택 안 됨-->
+            <label><input type="radio" name="grade" value="2"> 2학년 </label>
+            <label><input type="radio" name="grade" value="3" checked> 3학년 </label>
+            <label><input type="radio" name="grade" value="4"> 4학년 </label>
+            <br>
+            취미 :
+            <label><input type="checkbox" name="hobby[]" value="book" checked> 독서</label>
+            <label><input type="checkbox" name="hobby[]" value="excercise"> 운동</label>
+            <label><input type="checkbox" name="hobby[]" value="youtube" checked> 유튜브 보기</label>
+            <label><input type="checkbox" name="hobby[]" value="drawing"> 그림 그리기</label>
+            <label><input type="checkbox" name="hobby[]" value="violin"> 악기 연주</label>
+            <br>
+            국적 :
+            <select name="sel">
+                <option value="Ghana">가나</option>
+                <option value="Netherland">네덜란드</option>
+                <option value="S.Korea" selected>대한민국</option>
+                <option value="Russia">러시아</option>
+                <option value="Moroco">모로코</option>
+            </select>
+            <br>
+            <input type="text" list="country">
+            <datalist id="country">
+                <option value="Ghana">가나</option>
+                <option value="Netherland">네덜란드</option>
+                <option value="S.Korea">대한민국</option>
+                <option value="Russia">러시아</option>
+                <option value="Moroco">모로코</option>
+            </datalist>
+
+            <br>
+            <hr>
+            기타요소들<br>
+            <input type="button" value="단순버튼"><br>
+            <button>나도 버튼!</button><br> <!--이미지 태그를 넣어서 이미지 버튼 생성가능-->
+            <input type="date"><br>
+            <input type="time"><br>
+            <input type="month"><br>
+            <br>
+            <input type="email" placeholder="id@domain"><br>
+            <input type="url" placeholder="http://"><br>
+
+            <input type="color" onchange="document.body.style.backgroundColor=this.value"><br>
+
+            <br>
+            <input type="submit" value="전송하기">
+            <input type="reset" value="초기화">
+
+        </form>
+
+    </form>
+</body>
+</html>

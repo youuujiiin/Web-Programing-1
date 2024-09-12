@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024년도 1학기 기말(1분반)</title>
+    <style>
+        #sec1 {padding:10px;border:1px solid brown;}
+        #remain, #sale {position:absolute; visibility:hidden;}
+        .inTitle {display:inline-block;}
+    </style>
+    <script> 
+        let allProduct = new Array(); // 모든 제품(Product)을 담을 배열
+        
+        // Product 클래스 생성자 함수 완성하기
+        // 이름, 가격, 재고를 전달받아 객체가 생성됨
+        class Product{
+            a = allProduct
+
+
+
+
+        }
+
+        // Product의 prototype 출력 함수 완성
+        // 재고(remain)가 없을 경우 "name : 재고 없음<br>" 출력 예) 운동화 : 재고 없음
+        // 재고(remain)가 있을 경우 "name : remain개<br>" 출력 예) 가방 : 10개
+        Product.prototype.toString = function(){
+            /*
+            if (remain==null){
+                print(name, ": 재고 없음")
+            }
+            else{
+                print(name, ":", remain, "개")
+            }*/
+
+
+
+
+        }
+
+        // 수정 금지, 총 5개의 제품이 allProduct 배열에 추가되도록 해 두었음.
+        window.onload = function(){
+            allProduct.push(new Product("가방", 5000, 10));
+            allProduct.push(new Product("운동화", 3000, 0));
+            allProduct.push(new Product("우산", 1000, 30));
+            allProduct.push(new Product("모자", 1500, 3));
+            allProduct.push(new Product("음료수", 300, 50));
+        }
+
+        // 패널 배경색 변경 기능 완성하기
+        function chBack(o){
+            let sec1 = document.getElementById("sec1");
+            sec1.style.backgroundColor = o;
+        }
+
+        // [재고 관리 보기] 버튼에 대한 이벤트 함수
+        function showRemain(){
+            // <div class="remain_wrap">의 내부 컨텐츠를 삭제(빈 문자열로 지정)
+            // 재고 section과 구매 section 모두 숨긴 후 재고 section만 보이도록 스타일 변경
+            let rem = document.getElementById("remain");
+            let sale = document.getElementById("sale");
+            rem.style.visibility="visible"  ;
+            sale.style.visibility="hidden";
+
+
+
+
+        }
+
+        // [상품 구매 보기] 버튼에 대한 이벤트 함수
+        function showSale(){
+            // 재고 section과 구매 section 모두 숨긴 후 구매 section만 보이도록 스타일 변경
+            let sale = document.getElementById("sale");
+            let rem = document.getElementById("remain");
+            sale.style.visibility="visible";
+            rem.style.visibility="hidden";
+
+            // <select id='sale_list'>, <div id='sale_wrap'>의 내부 컨텐츠(innerHTML)를 빈 문자열로 지정하여 초기화
+            // <input type="text" id='count'>의 값도 0으로 초기화
+            let list = document.getElementById("sale_list");
+            let wrap = document.getElementById("sale_wrap");
+            list = innerHTML;
+            wrap = innerHTML;
+
+            let count = document.getElementById("count");
+            count = 0;
+
+            /* <select id="sale_list">에 재고가 남아있는 제품의 이름(name)을 추가하기                 
+                 - 재고가 남아 있는 제품만 추가 함.
+                <option> 객체를 생성하고 value값을 제품 이름으로 지정,
+                <option> 객체의 innerHTML을 제품 이름으로 지정 후
+                <select> 객체의 자식으로 추가               
+                    
+                제품 이름이 "모자"인 경우 생성되는 <option> 객체 예
+                <option value="모자">모자</option>
+            */
+            if (remain != 0){
+                list.append.name;
+                option.value.innerHTML=name;
+            }
+            
+
+
+        }        
+
+        // [재고보기] 버튼에 대한 이벤트 함수
+        function viewRemain(){
+            // <div id="remain_wrap"> 객체 내부 컨텐츠로 allProduct 배열에 저장되어 있는 모든 제품 출력
+            // 위에서 작성한 클래스의 출력 함수를 반드시 이용할 것!!
+            let wrap = document.getElementById("remain_wrap");
+            wrap.innerHTML = allProduct;
+
+
+
+        }
+
+        // [구매하기] 버튼에 대한 이벤트 함수
+        function purchase(){
+            /*
+            select 객체에서 선택한 제품과 갯수 입력에 따라 구매 기능을 수행함.
+            정보 표시 영역 : <div id='sale_wrap'>
+            1. 갯수 입력이 없는 경우 "갯수 입력은 필수입니다. 갯수를 입력해 주세요."를 
+               정보 표시 영역에 red 색으로 표시 후 갯수 입력 요소에 focus를 줌.
+            2. select에서 선택된 값을 allProduct 배열의 이름과 비교하여 상품을 찾음.
+            3. 입력된 갯수가 찾은 상품의 재고보다 큰 경우
+               "제품이 xx개 남았습니다."
+               "재고가 부족하여 구매할 수 없습니다." 를 
+               정보 표시 영역에 red 색으로 표시 후 갯수 입력 요소에 focus를 줌.
+            4. 재고가 충분한 경우
+               찾은 상품의 재고 수량에서 구매 갯수만큼 삭제
+               "...을 xx개 구매합니다."
+               "총 구매 금액은 xxxxxx원 입니다"를 
+               정보 표시 영역에 blue 색으로 표시 함.
+               이후에 [재고 관리 보기]->[재고 보기] 버튼을 누를 경우 재고량이 알맞게 반영되어 있는지 확인바람.
+            */
+        
+            
+            count = document.getElementByIda("count");
+            if(count==""){
+                count.innerHTML = "갯수입력은 필수입니다. 갯수를 입력해주세요";
+                this.foucs();
+            }
+            else
+                if (Products>remain){
+                    count.innerHTML = "제품이 " + remain + "개 남았습니다.";
+                    count.innerHTML = "재고가 부족하여 구매할 수 없습니다.";
+
+                }
+                else {
+                    count.innerHTML = name + "을 " + count + "개 구매합니다.";
+                    count.innerHTML = "총 구매 금액은 " + price*count + "원 입니다."
+                    remain = remain - count;
+                }
+        
+
+
+        }
+
+    </script>
+</head>
+<body>
+    <!-- 이벤트 처리기 추가 이외의 수정 금지 !!! -->
+    <h3>Control Panel</h3>
+    <section id="sec1">        
+        <input type="button" value="재고 관리 보기" onclick="showRemain()"> <!-- click 이벤트 함수 showRemain() 연결 -->
+        <input type="button" value="상품 구매 보기" onclick="showSale()"> <!-- click 이벤트 함수 showSale() 연결 -->
+        <br><br>
+        패널 색상 <input type="color" onchange="chBack(o)"> <!-- change 이벤트 함수 chBack() 함수 연결 -->       
+    </section>    
+
+    <hr>
+
+    <section id="remain" class="menu">
+        <h2 class="inTitle">재고 관리</h2>
+        <input type="button" value="재고보기" onclick="viewRemain()"> <!-- click 이벤트 함수 viewRemain() 연결 -->
+        <div id="remain_wrap"></div>
+    </section>
+    <section id="sale" class="menu">
+        <h2>상품 구매</h2>        
+        <select id="sale_list"></select>
+        갯수: <input type="text" id="count">
+        <hr>
+        <input type="button" value="구매하기" onclick="purchase()"> <!-- click 이벤트 함수 purchase() 연결 -->
+        <br>
+        <div id="sale_wrap"></div>
+    </section>
+</body>
+</html>
